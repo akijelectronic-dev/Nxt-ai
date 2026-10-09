@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#00ff41">
+<meta name="author" content="AL-AMIN">
+<title>AL-AMIN // NXT CYBER</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MATRIX CANVAS (হ্যাকার রেইন) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SPLASH SCREEN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="splash">
+  <div class="matrix-bg" id="matrixBg"></div>
+  <div class="splash-content">
+    
+    <!-- ASCII LOGO -->
+    <pre class="ascii-logo" id="asciiLogo">
+    ███╗   ██╗██╗  ██╗████████╗
+    ████╗  ██║╚██╗██╔╝╚══██╔══╝
+    ██╔██╗ ██║ ╚███╔╝    ██║   
+    ██║╚██╗██║ ██╔██╗    ██║   
+    ██║ ╚████║██╔╝ ██╗   ██║   
+    ╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   
+    </pre>
+
+    <div class="splash-logo">N</div>
+    <div class="splash-title" id="splashTitle"></div>
+    <div class="splash-sub">AI PROGRAMMER v3.0 // OPERATOR: AL-AMIN</div>
+    
+    <!-- BOOT TERMINAL -->
+    <div class="splash-terminal" id="splashTerminal"></div>
+    
+    <div class="boot-progress">
+      <div class="boot-bar" id="bootBar"></div>
+    </div>
+    <div class="boot-text" id="bootText">INITIALIZING...</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <button class="brand" onclick="goHome()">
+      <div class="brand-logo">A</div>
+      <div class="brand-text">
+        <span class="brand-name">AL-AMIN</span>
+        <span class="brand-tag">// NXT CYBER v3.0</span>
+      </div>
+    </button>
+    
+    <div class="header-center">
+      <div class="sys-monitor">
+        <span class="mon-item"><span class="mon-dot"></span>CPU <span id="cpuLoad">12%</span></span>
+        <span class="mon-item">MEM <span id="memLoad">34%</span></span>
+        <span class="mon-item">NET <span id="netStatus">ONLINE</span></span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <span class="status-dot"></span>
+      <button class="icon-btn" onclick="toggleEmulator()" title="Terminal Emulator">
+        <i class="fas fa-terminal"></i>
+      </button>
+      <button class="icon-btn" onclick="toggleTheme()" title="থিম">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MAIN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<main>
+  
+  <!-- ─────────── WELCOME SCREEN ─────────── -->
+  <div class="welcome" id="welcomeScreen">
+    
+    <div class="welcome-badge">
+      <span class="status-dot"></span> SYSTEM ONLINE // OPERATOR: AL-AMIN
+    </div>
+    
+    <div class="welcome-robot">
+      <i class="fas fa-user-secret"></i>
+    </div>
+    
+    <div class="welcome-title glitch-text" data-text="AL-AMIN // NXT CYBER">AL-AMIN // NXT CYBER</div>
+    
+    <div class="welcome-sub">
+      আমি <b>NXT CYBER</b> — <b>AL-AMIN</b>-এর ব্যক্তিগত AI প্রোগ্রামার।<br>
+      যেকোনো ভাষায় সম্পূর্ণ কোড দেব। Python, HTML, CSS, PHP, JavaScript, Java, C++, SQL — সব।
+    </div>
+    
+    <div class="welcome-window">
+      <div class="welcome-window-header">
+        <span class="win-dot red"></span>
+        <span class="win-dot yellow"></span>
+        <span class="win-dot green"></span>
+        <span class="window-title">al-amin@nxt:~$ ./welcome.sh</span>
+      </div>
+      <div class="welcome-code">
+        <div><span class="cm"># initializing nxt_cyber for al-amin</span></div>
+        <div><span class="kw">import</span> <span class="fn">cyber</span></div>
+        <div><span class="kw">def</span> <span class="fn">init</span>(<span class="vr">operator</span>=<span class="str">"AL-AMIN"</span>):</div>
+        <div style="padding-left:20px"><span class="vr">print</span>(<span class="str">f"System ready for {operator}."</span>)</div>
+        <div style="padding-left:20px"><span class="kw">return</span> <span class="str">"What to build, boss?"</span></div>
+        <div style="margin-top:8px"><span class="fn">init</span>()<span class="terminal-cursor"></span></div>
+      </div>
+    </div>
+    
+    <div class="welcome-buttons">
+      <button class="welcome-btn" onclick="startChat()">
+        <i class="fas fa-terminal"></i>
+        START SESSION
+      </button>
+      <button class="welcome-btn emu-btn" onclick="toggleEmulator()">
+        <i class="fas fa-code"></i>
+        OPEN EMULATOR
+      </button>
+    </div>
+    
+    <div class="quick-chips">
+      <button class="chip" onclick="quickAsk('একটা লগইন সিস্টেম বানাও HTML, CSS, PHP দিয়ে')"><span class="ico">🔐</span> লগইন সিস্টেম</button>
+      <button class="chip" onclick="quickAsk('Python দিয়ে একটা ক্যালকুলেটর বানাও')"><span class="ico">🐍</span> Python ক্যালকুলেটর</button>
+      <button class="chip" onclick="quickAsk('একটা সুন্দর ল্যান্ডিং পেজ বানাও HTML CSS দিয়ে')"><span class="ico">🌐</span> ল্যান্ডিং পেজ</button>
+      <button class="chip" onclick="quickAsk('JavaScript দিয়ে একটা গেম বানাও')"><span class="ico">🎮</span> JS গেম</button>
+      <button class="chip" onclick="quickAsk('একটা ব্লগ ওয়েবসাইট বানাও PHP MySQL দিয়ে')"><span class="ico">📝</span> ব্লগ সাইট</button>
+      <button class="chip" onclick="quickAsk('Python দিয়ে ডাটা স্ক্র্যাপিং শেখাও')"><span class="ico">🕷️</span> স্ক্র্যাপিং</button>
+    </div>
+  </div>
+  
+  <!-- ─────────── CHAT SCREEN ─────────── -->
+  <div class="chat-container" id="chatContainer">
+    
+    <div class="chat-header-bar">
+      <div class="chat-header-left">
+        <div class="chat-avatar">AI</div>
+        <div class="chat-info">
+          <h3>NXT CYBER</h3>
+          <p>session active // al-amin</p>
+        </div>
+      </div>
+      
+      <div class="chat-actions">
+        <button class="chat-mini-btn" onclick="toggleSearch()" title="সার্চ">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="chat-mini-btn" onclick="exportChat()" title="এক্সপোর্ট">
+          <i class="fas fa-download"></i>
+        </button>
+        <button class="chat-mini-btn" onclick="toggleVoice()" title="ভয়েস">
+          <i class="fas fa-microphone" id="voiceIcon"></i>
+        </button>
+        <button class="chat-mini-btn" onclick="clearChat()" title="নতুন চ্যাট">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button class="chat-mini-btn danger" onclick="goHome()" title="বন্ধ">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- SEARCH BAR -->
+    <div class="search-bar" id="searchBar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="চ্যাটে খুঁজুন..." oninput="searchChat(this.value)">
+      <button onclick="toggleSearch()"><i class="fas fa-times"></i></button>
+    </div>
+    
+    <div class="chat-messages" id="chatMessages"></div>
+    
+    <div class="chat-input-wrap">
+      <div class="chat-input-inner">
+        <span class="chat-input-prompt">al-amin@nxt:~$</span>
+        <textarea 
+          class="chat-input" 
+          id="chatInput" 
+          rows="1" 
+          placeholder="কী বানাতে চাও? // Enter = send"
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
+          oninput="autoGrow(this)"></textarea>
+        
+        <label class="chat-attach-btn" title="ফাইল আপলোড">
+          <i class="fas fa-paperclip"></i>
+          <input type="file" id="fileInput" onchange="handleFileUpload(event)" accept="image/*,.txt,.pdf,.js,.py,.html,.css,.json" hidden>
+        </label>
+        
+        <button class="chat-send" id="sendBtn" onclick="sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="input-meta">
+        <span id="charCount">0 chars</span>
+        <span id="attachInfo"></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TERMINAL EMULATOR (ইউনিক ফিচার) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="emulator" id="emulator">
+  <div class="emulator-header">
+    <div class="emu-dots">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+    </div>
+    <span class="emu-title">al-amin@nxt: ~/cyber_terminal</span>
+    <div class="emu-actions">
+      <button onclick="emuClear()" title="Clear"><i class="fas fa-broom"></i></button>
+      <button onclick="toggleEmulator()" title="Close"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  
+  <div class="emulator-body" id="emuBody">
+    <div class="emu-line emu-welcome">
+      <pre>
+╔══════════════════════════════════════════╗
+║   NXT CYBER TERMINAL EMULATOR v3.0       ║
+║   Operator: AL-AMIN                      ║
+║   Type "help" to see commands            ║
+╚══════════════════════════════════════════╝
+      </pre>
+    </div>
+    <div class="emu-output" id="emuOutput"></div>
+    
+    <div class="emu-input-line">
+      <span class="emu-prompt">al-amin@nxt:~$</span>
+      <input type="text" class="emu-input" id="emuInput" 
+        onkeydown="handleEmuKey(event)" 
+        autocomplete="off" 
+        spellcheck="false"
+        placeholder="type command here...">
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TOAST -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HIDDEN GLOBAL ELEMENTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="hackOverlay" class="hack-overlay">
+  <div class="hack-text" id="hackText"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
